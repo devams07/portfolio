@@ -149,9 +149,14 @@ body[data-theme='light'] .glass-panel {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.85) 30%, rgba(255, 255, 255, 0.15) 80%, transparent);
   opacity: 0;
   pointer-events: none;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 6px rgba(139, 92, 246, 0.2));
   animation: shoot var(--star-duration) linear infinite;
   animation-delay: var(--star-delay);
+}
+
+@media (min-width: 768px) {
+  .shooting-star {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 6px rgba(139, 92, 246, 0.2));
+  }
 }
 
 @keyframes shoot {

@@ -13,7 +13,7 @@ export default function SpaceBackground() {
   }, [])
 
   const starsCount = isMobile ? 35 : 120
-  const shootingStarsCount = isMobile ? 0 : 60
+  const shootingStarsCount = isMobile ? 12 : 60
 
   const stars = useMemo(() => {
     return Array.from({ length: starsCount }, (_, index) => ({
