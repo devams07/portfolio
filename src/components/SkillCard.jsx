@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 export default function SkillCard({ name, level }) {
   return (
     <motion.article
-      layout
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -20,12 +19,13 @@ export default function SkillCard({ name, level }) {
           {/* Progress Bar Container */}
           <div className="h-3 w-full rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 overflow-hidden">
             <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${level}%` }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.85, ease: 'easeOut' }}
-              className="h-full rounded-full bg-cyan"
+              className="h-full rounded-full bg-cyan origin-left"
               style={{
+                width: `${level}%`,
                 boxShadow: '0 0 10px rgba(139, 92, 246, 0.4)',
                 background: 'linear-gradient(90deg, #8b5cf6, #c084fc)'
               }}

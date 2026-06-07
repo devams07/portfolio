@@ -12,8 +12,8 @@ export default function SpaceBackground() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const starsCount = isMobile ? 35 : 120
-  const shootingStarsCount = isMobile ? 12 : 60
+  const starsCount = isMobile ? 25 : 120
+  const shootingStarsCount = isMobile ? 8 : 60
 
   const stars = useMemo(() => {
     return Array.from({ length: starsCount }, (_, index) => ({
