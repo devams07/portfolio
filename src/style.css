@@ -111,16 +111,27 @@ textarea {
 }
 
 .glass-panel {
-  backdrop-filter: blur(18px);
-  background: rgba(8, 7, 16, 0.65);
+  background: rgba(8, 7, 16, 0.88);
   border: 1px solid rgba(167, 139, 250, 0.12);
   box-shadow: 0 24px 80px rgba(2, 2, 6, 0.45);
 }
 
 body[data-theme='light'] .glass-panel {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(31, 26, 58, 0.08);
   box-shadow: 0 24px 60px rgba(31, 26, 58, 0.06);
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    backdrop-filter: blur(18px);
+    background: rgba(8, 7, 16, 0.65);
+  }
+
+  body[data-theme='light'] .glass-panel {
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.82);
+  }
 }
 
 .text-gradient {

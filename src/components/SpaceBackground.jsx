@@ -1,8 +1,22 @@
-import { useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 export default function SpaceBackground() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const starsCount = isMobile ? 35 : 120
+  const shootingStarsCount = isMobile ? 0 : 60
+
   const stars = useMemo(() => {
-    return Array.from({ length: 120 }, (_, index) => ({
+    return Array.from({ length: starsCount }, (_, index) => ({
       id: index,
       top: `${(index * 13.7) % 100}%`,
       left: `${(index * 29.3) % 100}%`,
@@ -11,17 +25,17 @@ export default function SpaceBackground() {
       delay: `${(index % 8) * 0.7}s`,
       duration: `${4 + (index % 6) * 1.2}s`,
     }))
-  }, [])
+  }, [starsCount])
 
   const shootingStars = useMemo(() => {
-    return Array.from({ length: 60 }, (_, index) => {
+    return Array.from({ length: shootingStarsCount }, (_, index) => {
       const top = `${(index * 4.7) % 85}%`
       const left = `${10 + (index * 9.3) % 85}%`
       const delay = `${index * 0.6 + (index % 3) * 0.3}s`
       const duration = `${3.5 + (index % 4) * 1.2}s`
       return { id: index, top, left, delay, duration }
     })
-  }, [])
+  }, [shootingStarsCount])
 
   return (
     <div className="starry-sky fixed inset-0 overflow-hidden pointer-events-none z-0">
