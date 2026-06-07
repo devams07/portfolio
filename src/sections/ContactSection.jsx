@@ -41,9 +41,9 @@ export default function ContactSection() {
       <div className="mx-auto max-w-7xl">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="mb-16 text-center"
         >
           <h2 className="text-4xl font-bold md:text-5xl">
@@ -62,26 +62,28 @@ export default function ContactSection() {
               href={item.href}
               target={item.href.startsWith('http') ? '_blank' : undefined}
               rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="glass-panel section-ring flex flex-col items-center rounded-[28px] p-8 text-center transition hover:border-cyan/50"
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.4, delay: index * 0.06, ease: 'easeOut' }}
+              className="will-change-transform block"
             >
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan/12 text-4xl text-cyan">
-                <item.icon />
+              <div className="glass-panel section-ring flex flex-col items-center rounded-[28px] p-8 text-center transition-colors duration-300 md:hover:border-cyan/50 h-full">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan/12 text-4xl text-cyan transition duration-300">
+                  <item.icon />
+                </div>
+                <h3 className="text-lg font-semibold text-white">{item.label}</h3>
+                <p className="mt-2 text-sm text-slate-300">{item.value}</p>
               </div>
-              <h3 className="text-lg font-semibold text-white">{item.label}</h3>
-              <p className="mt-2 text-sm text-slate-300">{item.value}</p>
             </motion.a>
           ))}
         </div>
 
         {/* Security Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="mb-12 flex justify-center"
         >
           <div className="rounded-[24px] border-2 border-cyan/40 px-8 py-6 text-center">
