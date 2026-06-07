@@ -34,10 +34,10 @@ export default function AboutSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left: Biography Text & Buttons */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
             <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 md:text-3xl">
@@ -77,25 +77,27 @@ export default function AboutSection() {
               return (
                 <motion.article
                   key={highlight.title}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: index * 0.12 }}
-                  className="glass-panel group flex items-start gap-5 rounded-2xl p-6 transition duration-300 hover:translate-x-2"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.05 }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.08 }}
+                  className="will-change-transform"
                 >
-                  {/* Icon badge */}
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan/10 text-xl text-cyan transition duration-300 group-hover:bg-cyan/20 group-hover:scale-105">
-                    <IconComponent />
-                  </div>
-                  
-                  {/* Text Details */}
-                  <div className="min-w-0">
-                    <h4 className="text-lg font-semibold text-white dark:text-white light:text-slate-900">
-                      {highlight.title}
-                    </h4>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-300 dark:text-slate-300 light:text-slate-600">
-                      {highlight.text}
-                    </p>
+                  <div className="glass-panel group flex items-start gap-5 rounded-2xl p-6 transition-transform duration-300 ease-out md:hover:translate-x-2 cursor-default">
+                    {/* Icon badge */}
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan/10 text-xl text-cyan transition duration-300 group-hover:bg-cyan/20 group-hover:scale-105">
+                      <IconComponent />
+                    </div>
+                    
+                    {/* Text Details */}
+                    <div className="min-w-0">
+                      <h4 className="text-lg font-semibold text-white dark:text-white light:text-slate-900">
+                        {highlight.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-300 dark:text-slate-300 light:text-slate-600">
+                        {highlight.text}
+                      </p>
+                    </div>
                   </div>
                 </motion.article>
               )
